@@ -605,7 +605,7 @@ input[type="range"]::-moz-range-thumb {
   main {
     margin-top: 50px;
   }
-  
+
   .valinnat {
     display: flex;
     flex-wrap: wrap;
@@ -613,4 +613,8 @@ input[type="range"]::-moz-range-thumb {
     gap: 10px;
     margin-top: 10px;
   }
+}
+
+body.etusivu .hamburger {
+  color: white;
 }
