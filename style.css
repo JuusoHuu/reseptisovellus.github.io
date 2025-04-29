@@ -1,0 +1,361 @@
+
+/* Reset ja perusasetus */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fdf6f0;
+    min-height: 100vh;
+    color: #1a1a1a;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  /* Navigaatio */
+  nav {
+    padding: 10px;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;   
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  nav ul li a { 
+    display: inline-block;
+    background-color: rgba(244, 162, 97, 0.8);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .menu-toggle {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    padding: 0 20px;
+  }
+  
+  /* Responsiivinen navigaatio */
+  @media (max-width: 768px) {
+    #nav-lista {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      background-color: #333;
+      padding: 10px 0;
+    }
+  
+    #nav-lista li {
+      margin: 10px 0;
+    }
+  
+    #nav-lista.show {
+      display: flex;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  }
+  
+  /* Header esim. taustakuvan kanssa */
+  header {
+    background-position: center;
+    color: white;
+    padding: 20px 20px 60px 20px;
+    text-align: center;
+  }
+
+  .hero-banner {
+    position: relative;
+    height: 350px;
+    background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+  }
+
+  .hero-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+  }
+
+  .hero-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px;
+    border-radius: 12px;
+  }
+
+  .hero-nav ul li a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  padding-top: 100px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content .otsikko {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 800px;
+  color: white;
+}
+  
+  /* Logo */
+  .logo {
+    display: block;
+    max-width: 600px;
+    margin: 30px auto 10px auto;
+  }
+  
+  /* Päälaatikko */
+  .container {
+    background-color: #fff;
+    max-width: 700px;
+    width: 90%;
+    margin: 140px auto 40px auto;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Otsikot */
+  h1, h2, h3 {
+    color: #2e2e2e;
+    margin-bottom: 1rem;
+  }
+  
+  /* Lomakekentät */
+  input[type="text"],
+  textarea {
+    width: 70%;
+    max-width: 600px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+    border-left: 5px solid #ffa500;
+    border-right: 5px solid #ffa500;
+  }
+  
+  input[type="text"]:focus,
+  textarea:focus {
+    border-color: #ff6f61;
+  }
+  
+  /* Nappi */
+  button {
+    background-color: #ffa500;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; 
+  }
+  
+  button:hover {
+    background-color: #e4574f;
+    transform: scale(1.03);
+  }
+  
+  /* Sovellusnappi */
+  .sovellus {
+    display: inline-block;
+    background-color: #ffa500;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px auto 40px auto;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .sovellus:hover {
+    background-color: #e07b00;
+  }
+  
+  /* Tekoälyn vastaus */
+  #vastaus {
+    background: #ffffff;
+    color: #1a1a1a;
+    border-left: 5px solid #ffa500;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    line-height: 1.6;
+    font-size: 16px;
+    text-align: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border-right: 5px solid #ffa500;
+    border-top: 5px solid #ffa500;
+  }
+  
+  #vastaus h3,
+  #vastaus h2 {
+    color: black;
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #ffa500;
+    padding-bottom: 0.3rem;
+  }
+  
+  #vastaus ul,
+  #vastaus ol {
+    padding-left: 1.2rem;
+    margin-top: 1rem;
+    list-style-type: none;
+  }
+  
+  #vastaus li {
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    padding: 8px 12px;
+  }
+  
+  /* Responsiivisuus */
+  @media (max-width: 600px) {
+    .container {
+      padding: 1.5rem;
+      margin: 100px 1rem 30px 1rem;
+    }
+  }
+  
+.hidden{
+    display: none;
+}
+
+.kysymys{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.kysymys input[type="radio"] {
+    display: none;
+  }
+
+.kysymys label {
+    background-color: #f4a261;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.kysymys input[type="radio"]:checked + label {
+    background-color: #e76f51;
+    transform: scale(1.05);
+  }
+
+#Esisalto{
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+#Esisalto input[type="radio"] {
+    display: none;
+}
+
+#Esisalto label{
+  background-color: #f4a261;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-weight: 500;
+}
+
+#Esisalto input[type="radio"]:checked + label {
+  background-color: #e76f51;
+  transform: scale(1.05);
+}
+
+.aika{
+  margin-top: 20px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  max-width: 600px;
+  width: 70%;
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #ffa500 0%, #ccc 0%);
+  outline: none;
+  margin: 1rem auto;
+  transition: background 0.3s;
+}
+
+/* Liukupallo tyylikäs mutta ilman emoji */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #e4574f;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #e4574f;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
