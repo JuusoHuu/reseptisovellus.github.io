@@ -11,7 +11,10 @@
         </head> 
         <body>
             <header>
-                <nav>
+                <div class="hamburger" onclick="toggleMenu()">
+                    &#9776;
+                </div>
+                <nav class="appNav" id="navMenu">
                     <ul>
                         <li><a href="index.html">Koti</a></li>
                         <li><a href="#" onclick="location.reload()">Reset</a></li>
@@ -36,8 +39,8 @@
                         <label for="tuote"></label>
                 </div>
                 
-                <div id="Esisalto" class="hidden">
-                    <h3>Minkä laista ruokaa haluat</h3>   
+                <h3 id="otsikkoEsisalto" class="hidden">Minkä laista ruokaa haluat</h3>
+                <div id="Esisalto" class="hidden">   
                     <input type="radio" id="valinta1" name="vaihtoehto" value="liha">
                     <label for="valinta1">Liha</label>
                 
@@ -48,7 +51,7 @@
                     <label for="valinta3">Salaatti</label>
                 
                     <input type="radio" id="valinta4" name="vaihtoehto" value="vege">
-                    <label for="valinta4">Vegaaninen</label>   
+                    <label for="valinta4">Vege</label>   
                 </div>
 
                 <div id="slidebar" class="hidden">

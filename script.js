@@ -3,6 +3,7 @@ const radioNo = document.getElementById("radioNo");
 
 const kSisalto = document.getElementById("Ksisalto");
 const eSisalto = document.getElementById("Esisalto");
+const otsikko = document.getElementById("otsikkoEsisalto")
 const slidebar = document.getElementById("slidebar");
 const allergiat = document.getElementById("allergiat");
 const haku = document.getElementById("haku");
@@ -11,6 +12,7 @@ radioYes.addEventListener("change", () => {
   if (radioYes.checked) {
     kSisalto.classList.remove("hidden");
     eSisalto.classList.add("hidden");
+    otsikko.classList.add("hidden");
     slidebar.classList.remove("hidden");
     allergiat.classList.remove("hidden");
     haku.classList.remove("hidden");
@@ -21,6 +23,7 @@ radioNo.addEventListener("change", () => {
   if (radioNo.checked) {
     kSisalto.classList.add("hidden");
     eSisalto.classList.remove("hidden");
+    otsikko.classList.remove("hidden");
     slidebar.classList.remove("hidden");
     allergiat.classList.remove("hidden");
     haku.classList.remove("hidden");
@@ -142,5 +145,18 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     } catch (e) {
       console.error("Virhe tarkemmassa reseptikyselyssä:", e.message);
+    }
+  }
+
+  function toggleMenu() {
+    const nav = document.getElementById("navMenu");
+    const heroContent = document.querySelector(".hero-content");
+  
+    nav.classList.toggle("active");
+
+    if (nav.classList.contains("active")) {
+      heroContent.style.display = "none";
+    } else {
+      heroContent.style.display = "block";
     }
   }

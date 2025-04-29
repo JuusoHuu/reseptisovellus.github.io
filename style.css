@@ -263,7 +263,7 @@
   }
   
 .hidden{
-    display: none;
+    display: none !important;
 }
 
 .kysymys{
@@ -359,3 +359,258 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
 }
 
+.appNav{
+  background-color: #fdf6f0;
+}
+
+@media (max-width: 768px) {
+
+  /* Hero-banneri */
+  .hero-banner {
+    height: 280px;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .hero-content {
+    padding-top: 60px;
+  }
+
+  .hero-content .otsikko {
+    font-size: 1.1rem;
+    padding: 0 10px;
+  }
+
+  .logo {
+    max-width: 90%;
+    margin: 20px auto 5px auto;
+  }
+
+  .sovellus {
+    width: 80%;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* Navigaatio (hamburilaisvalikko) */
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 2;
+  }
+
+  .hero-nav {
+    display: none;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 10px;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .hero-nav.active {
+    display: block;
+  }
+
+  .hero-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Navigaatio (yleinen nav, esim. app.html) */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  nav ul li {
+    width: auto;
+    text-align: center;
+  }
+
+  nav ul li a {
+    width: auto;
+    padding: 12px 24px;
+  }
+
+  /* Main-sisältö */
+  main {
+    padding: 20px 10px;
+    margin-top: 50px;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    color: #2e2e2e;
+  }
+
+  .kysymys {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .kysymys label {
+    min-width: 100px;
+    padding: 10px 16px;
+    text-align: center;
+  }
+
+  #Esisalto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+  }
+  
+  #Esisalto label {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 10px;
+    min-width: 80px;
+    max-width: 100px;
+    text-align: center;
+  }
+
+  textarea {
+    width: 90%;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  input[type="range"] {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  button {
+    width: 90%;
+    padding: 12px;
+    font-size: 1rem;
+    margin: 20px auto;
+  }
+
+  #vastaus {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-banner {
+    height: 240px;
+  }
+
+  .hero-content {
+    padding-top: 40px;
+  }
+
+  .hero-content .otsikko {
+    font-size: 1rem;
+  }
+
+  .sovellus {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  .kysymys label,
+  #Esisalto label {
+    font-size: 1rem;
+    padding: 10px 14px;
+  }
+
+  button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}
+
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #e76f51;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 2000;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  #navMenu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fdf6f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 300px;
+    padding: 10px 0;
+    z-index: 1500;
+  }
+
+  #navMenu.active {
+    display: block;
+  }
+
+  #navMenu ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+  }
+
+  #navMenu ul li a {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(244, 162, 97, 0.9);
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  main {
+    margin-top: 50px;
+  }
+  
+  .valinnat {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
