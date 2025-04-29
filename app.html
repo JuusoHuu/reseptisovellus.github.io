@@ -1,0 +1,76 @@
+    <!DOCTYPE html>
+    <html lang="fi">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Resepti sovellus</title>
+            <link rel="stylesheet" href="style.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        </head> 
+        <body>
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Koti</a></li>
+                        <li><a href="#" onclick="location.reload()">Reset</a></li>
+                        <li><a href="app.html">Sovellus</a></li>    
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                
+                <h3>Haluatko käyttää jääkaappisi ja kaappisi tuotteita?</h3>
+
+                <div class="kysymys">
+                    <input type="radio" name="jaakaappiSisalto" value="yes" id="radioYes">
+                    <label for="radioYes">Kyllä</label>
+                    <input type="radio" name="jaakaappiSisalto" value="no" id="radioNo">
+                    <label for="radioNo">Ei</label>
+                </div>
+
+                <div id="Ksisalto" class="hidden">
+                        <textarea name="tuote" id="tuote" placeholder="Listaa kaappiesi tuotteet"></textarea>
+                        <label for="tuote"></label>
+                </div>
+                
+                <div id="Esisalto" class="hidden">
+                    <h3>Minkä laista ruokaa haluat</h3>   
+                    <input type="radio" id="valinta1" name="vaihtoehto" value="liha">
+                    <label for="valinta1">Liha</label>
+                
+                    <input type="radio" id="valinta2" name="vaihtoehto" value="kevyt">
+                    <label for="valinta2">Kevyt</label>
+                
+                    <input type="radio" id="valinta3" name="vaihtoehto" value="salaatti">
+                    <label for="valinta3">Salaatti</label>
+                
+                    <input type="radio" id="valinta4" name="vaihtoehto" value="vege">
+                    <label for="valinta4">Vegaaninen</label>   
+                </div>
+
+                <div id="slidebar" class="hidden">
+                    <h3 class="aika">Kuinka paljon aikaa kokata</h3>
+                    <label for="aika" id="aikaaKokata"> </label>
+                        <span>15 min</span>
+                        <input type="range" id="aika" name="aika" min="15" max="120" step="5">
+                        <span>120min</span>
+                        <h3>Valittu aika: <span id="aikaArvo">70</span> min</h3>
+                </div>
+
+                <div id="allergiat" class="hidden">
+                    <label for="esteet"></label>
+                    <textarea name="allergia" id="allergia" placeholder="Listaa allergiat"></textarea>
+                </div>
+
+                <button id="haku" class="hidden">Hae reseptit</button>
+
+                <div id="vastaus" class="hidden"></div>
+
+            </main>
+            <script src="env.js"></script>
+            <script src="script.js"></script>
+        </body>
+    </html>
