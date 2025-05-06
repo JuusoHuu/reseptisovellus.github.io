@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const aikaSlider = document.getElementById("aika");
   const aikaArvo = document.getElementById("aikaArvo");
 
-  //Funktio taustan väriin
   function paivitaSliderVari() {
     const min = aikaSlider.min;
     const max = aikaSlider.max;
@@ -45,13 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
     aikaSlider.style.background = `linear-gradient(to right, #ffa500 0%, #ffa500 ${prosentti}%, #ccc ${prosentti}%, #ccc 100%)`;
   }
 
-  //Päivitä sekä arvo että väri
   aikaSlider.addEventListener("input", function () {
     aikaArvo.textContent = this.value;
     paivitaSliderVari();
   });
 
-  //Alustus kun sivu latautuu
   aikaArvo.textContent = aikaSlider.value;
   paivitaSliderVari();
 });
@@ -132,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ prompt: `Anna tarkka resepti ja ainesmäärät ruoalle: ${reseptiNimi}` })
+        body: JSON.stringify({ prompt: `Anna tarkka resepti ja ainesmäärät ruoalle ilman "*", "-" merkkejä: ${reseptiNimi}` })
       });
   
       const data = await response.json();
