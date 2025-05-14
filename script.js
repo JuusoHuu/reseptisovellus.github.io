@@ -64,8 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
   paivitaSliderVari();
 });
 
-  //kun käyttäjä painaa "haku" nappia tulee resepti kysely
+  //kun käyttäjä painaa "haku" nappia tulee reseptikysely
   document.getElementById("haku").addEventListener("click", async () => {
+    const loadingMessage = document.getElementById("loading-message");
+    loadingMessage.classList.remove("hidden");
 
     //tarkistetaan käyttääkö käyttäjä kaappien sisältöä
     const kaappiValinta = document.querySelector('input[name="jaakaappiSisalto"]:checked')?.value;
@@ -131,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", (e) => {
           const valinta = e.target.getAttribute("data-valinta");
           console.log("Käyttäjä valitsi reseptin:", valinta);
-          document.getElementById("valittuResepti").innerHTML = `<em>Haetaan reseptiä...</em>`;
+          document.getElementById("valittuResepti").innerHTML = `<em id="loading-message">Haetaan reseptiä...</em>`;
           haeTarkempiResepti(valinta);
         });
       });
@@ -139,6 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (e) {
       //jos tapahtuu virhe tuodaan error viesti consoleen
       console.error("Virhe haettaessa reseptejä:", e.message);
+    }
+      finally {
+        //varmistaa että lataus viesti piilotetaan 
+        loadingMessage.classList.add("hidden");
     }
   });
 
@@ -186,3 +192,32 @@ document.addEventListener("DOMContentLoaded", () => {
       heroContent.style.display = "block";
     }
   }
+
+  //odotetaan htmllän lataamista 
+  document.addEventListener("DOMContentLoaded", () => {
+    //funktio näyttää reset varmistuksen ja estää linkin oletustoiminnon
+    function avaaResetVahvistus(event) {
+      event.preventDefault();
+      document.getElementById("resetModal").classList.remove("hidden");
+    }
+    
+    //kun käyttäjä klikkaa "Kyllä" ladataan sivu uudelleen
+    document.getElementById("vahvistaReset").addEventListener("click", () => {
+      location.reload();
+    });
+  
+    //kun käyttäjä klikkaa "Ei" piilotetaan modal
+    document.getElementById("peruutaReset").addEventListener("click", () => {
+      document.getElementById("resetModal").classList.add("hidden");
+    });
+  
+    //jos käyttäjä klikkaa popupin taustaa katoaa myös
+    document.getElementById("resetModal").addEventListener("click", function (e) {
+      if (e.target === this) {
+        this.classList.add("hidden");
+      }
+    });
+  
+    //tehdään reset funktiosta globaali jotta sitä voidaan kutsua htmllän onclickinä
+    window.avaaResetVahvistus = avaaResetVahvistus;
+  });

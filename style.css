@@ -21,7 +21,7 @@ nav {
   top: 0;
   width: 100%;
   position: fixed;
-  z-index: 1000;   
+  z-index: 1000;
 }
 
 nav ul {
@@ -39,6 +39,9 @@ nav ul li a {
   font-weight: bold;
   text-decoration: none;
   color: white;
+}
+nav ul li a:hover{
+  background-color: #e4574f;
 }
 
 /*hampurilais menun asettelu pienille näytöille*/
@@ -208,7 +211,7 @@ button:hover {
 }
 
 .sovellus:hover {
-  background-color: #e07b00;
+  background-color: #e4574f;
 }
 
 /*Geminin vastaus alue*/
@@ -291,6 +294,10 @@ button:hover {
   margin-bottom: 20px;
 }
 
+.kysymys label:hover{
+  background-color: #e4574f;
+}
+
 .kysymys input[type="radio"]:checked + label {
   background-color: #e76f51;
   transform: scale(1.05);
@@ -359,10 +366,6 @@ background: #e4574f;
 border: none;
 border-radius: 50%;
 cursor: pointer;
-}
-
-.appNav{
-background-color: none;
 }
 
 /*responsiivisuus pienille näytöille*/
@@ -605,7 +608,7 @@ z-index: 2000;
 }
 
 main {
-  margin-top: 50px;
+  margin-top: 0px;
 }
 
 .valinnat {
@@ -620,4 +623,107 @@ main {
 /*etusivun hampurilaismenun väri*/
 body.etusivu .hamburger {
 color: white;
+}
+
+@media (max-width: 420px) {
+  .container,
+  #vastaus,
+  input[type="text"],
+  textarea {
+    width: 95%;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .kysymys label,
+  #Esisalto label {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  input[type="range"] {
+    width: 100%;
+  }
+}
+
+/*lataus viestiä varten animaatio*/
+#loading-message {
+  margin-top: 10px;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/*popuppia varten että haluaako käyttäjä varmasti resetata*/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff8f0;
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+  max-width: 320px;
+  width: 90%;
+  margin: auto;
+  position: relative;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+} 
+
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.modal-buttons .yes {
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal-buttons .no {
+  background-color: #ccc;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/*app.htmllän navigaatio palkin väri*/
+.appNav{
+  background-color: #fdf6f0;
 }

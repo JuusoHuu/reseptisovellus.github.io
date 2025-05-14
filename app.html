@@ -17,7 +17,7 @@
                 <nav class="appNav" id="navMenu">
                     <ul>
                         <li><a href="index.html">Koti</a></li>
-                        <li><a href="#" onclick="location.reload()">Reset</a></li>
+                        <li><a href="#" onclick="avaaResetVahvistus(event)">Reset</a></li>
                         <li><a href="app.html">Sovellus</a></li>    
                     </ul>
                 </nav>
@@ -58,7 +58,7 @@
                     <h3 class="aika">Kuinka paljon aikaa kokata</h3>
                     <label for="aika" id="aikaaKokata"> </label>
                         <span>15 min</span>
-                        <input type="range" id="aika" name="aika" min="15" max="120" step="5">
+                        <input type="range" id="aika" name="aika" min="15" max="120" step="1">
                         <span>120min</span>
                         <h3>Valittu aika: <span id="aikaArvo">70</span> min</h3>
                 </div>
@@ -66,13 +66,25 @@
                 <div id="allergiat" class="hidden">
                     <textarea name="allergia" id="allergia" placeholder="Listaa allergiat"></textarea>
                 </div>
-
+                
                 <button id="haku" class="hidden">Hae reseptejä</button>
+                <div id="loading-message" class="hidden">Etsitään reseptejä...</div>
 
                 <div id="vastaus" class="hidden"></div>
 
             </main>
             <script src="env.js"></script>
             <script src="script.js"></script>
+
+            <div id="resetModal" class="modal hidden">
+                <div class="modal-content">
+                    <p>Haluatko varmasti aloittaa alusta?</p>
+                    <div class="modal-buttons">
+                        <button id="vahvistaReset" class="yes">Kyllä</button>
+                        <button id="peruutaReset" class="no">Ei</button>
+                    </div>
+                </div>
+            </div>
+
         </body>
     </html>
