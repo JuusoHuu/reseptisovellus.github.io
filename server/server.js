@@ -26,6 +26,7 @@ app.get("/", (req, res) => {
 
 //luetaan gemini api avain ympäristö muuttujista
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const kieli = localStorage.getItem("language") || "en";
 
 //reitti resepti kyselyä varten
 app.post("/api/ask", async (req, res) => {
@@ -39,6 +40,8 @@ app.post("/api/ask", async (req, res) => {
     prompt
   } = req.body;
 
+
+  
 //promptti joka pyytää reseptien nimet geminiltä
 const promptToUse = prompt || `Anna 3 ruokareseptiä, jotka sopivat ruokatyypille: ${ruokatyyppi}.
 ${kaytaKaapinSisaltoa === "yes" ? `Käytä seuraavia aineksia: ${tuotteet}` : "Älä käytä jääkaapin sisältöä"}.
