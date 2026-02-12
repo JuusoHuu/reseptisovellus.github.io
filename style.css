@@ -398,13 +398,14 @@ cursor: pointer;
 
 .hamburger {
   display: block;
+  right: 10px;
   font-size: 30px;
   cursor: pointer;
   color: white;
   position: absolute;
   top: 15px;
   right: 20px;
-  z-index: 2;
+  z-index: 2100;
 }
 
 .hero-nav {
@@ -560,7 +561,8 @@ color: #e76f51;
 position: fixed;
 top: 15px;
 right: 20px;
-z-index: 2000;
+z-index: 2100;
+right: 10px;
 }
 
 /*pienten näyttöjen valikko asettelu*/
@@ -726,4 +728,113 @@ color: white;
 /*app.htmllän navigaatio palkin väri*/
 .appNav{
   background-color: #fdf6f0;
+}
+#auth-area {
+  position: fixed; 
+  top: 10px;
+  right: 16px;
+  z-index: 2000; 
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.5); 
+  padding: 6px 12px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+@media (max-width: 768px) {
+  #auth-area {
+    font-size: 0.8rem;
+    right: 12px;
+    top: 12px;
+    left: 10px;
+    width: fit-content;
+  }
+}
+
+#auth-area a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+#auth-area a:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+#user-info {
+  color: white;
+  font-weight: 500;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  opacity: 0.95;
+  z-index: 1000;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+}
+
+.toast.hidden {
+  display: none;
+}
+
+.suosikki-kortti {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  list-style-type: none;
+}
+
+.resepti-sisalto {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, padding 0.3s ease;
+  padding: 0 1rem;
+}
+
+.resepti-sisalto:not(.hidden) {
+  max-height: 5000px; 
+  padding: 1rem;
+  text-align: center;
+}
+
+.resepti-otsikko {
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0;
+}
+
+.suosikki-kortti {
+  background: white;
+  margin: 1rem 0;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.language-container {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+#languageSwitcher {
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 5px;
 }

@@ -1,39 +1,52 @@
-<!DOCTYPE html>
-<html lang="fi">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resepti sovellus</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-  </head>
+  <!DOCTYPE html>
+  <html lang="fi">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Resepti sovellus</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    </head>
 
-  <body class="etusivu">
-    <header class="hero-banner">
-      <div class="hamburger" onclick="toggleMenu()">
-        &#9776;
-      </div>
-      <nav class="hero-nav" id="navMenu">
-        <ul>
-          <li><a href="index.html">Koti</a></li>
-          <li><a href="app.html">Sovellus</a></li>
-        </ul>
-      </nav>
-      <div class="hero-content">
-        <h1 class="otsikko">
-          Tervetuloa sivullemme!<br>
-          Tämä on simppeli resepti sovellus joka hyödyntää tekoälyä reseptien löytämiseen.
-        </h1>
-      </div>
-    </header>
+    <body class="etusivu">
+      <header class="hero-banner">
+        <div class="hamburger" onclick="toggleMenu()">
+          &#9776;
+        </div>
+        <nav class="hero-nav" id="navMenu">
+          <ul>
+            <li><a href="index.html" data-i18n="home"="">Koti</a></li>
+            <li><a href="tallennetut.html" data-i18n="saved">Tallennetut</a></li>
+            <li><a href="app.html" data-i18n="app"="">Sovellus</a></li>
+          </ul> 
+          </div>
+        </nav>
 
-    <main>
-      <img class="logo" src="logo2.jpg" alt="logo">
-      <a class="sovellus" href="app.html">SOVELLUKSEEN</a>
-    </main>
+        <div id="auth-area">
+          <span id="user-info"></span>
+          <a href="#" id="login-btn" data-i18n="login">Kirjaudu</a>
+          <a href="#" id="logout-btn" style="display: none;" data-i18n="logout">Uloskirjautuminen</a>
+        </div>
+      
 
-    <script src="script.js" defer></script>
-  </body>
-</html>
+        <div class="hero-content">
+          <h1 class="otsikko" data-i18n="welcomeMessage">
+            Tervetuloa sivullemme!<br>
+            Tämä on simppeli resepti sovellus joka hyödyntää tekoälyä reseptien löytämiseen.
+          </h1>
+        </div>
+      </header>
+
+      <main>    
+        <a class="sovellus" href="app.html" data-i18n="toApp">SOVELLUKSEEN</a>
+      </main>
+
+      <script type="module">
+        import { setupAuthHandlers } from './users.js';
+        setupAuthHandlers();
+      </script>
+      <script type="module" src="script.js"></script>
+    </body>
+  </html>

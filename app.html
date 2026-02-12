@@ -18,70 +18,81 @@
                     <ul>
                         <li><a href="index.html">Koti</a></li>
                         <li><a href="#" onclick="avaaResetVahvistus(event)">Reset</a></li>
-                        <li><a href="app.html">Sovellus</a></li>    
+                        <li><a href="tallennetut.html">Tallennetut</a></li>
                     </ul>
                 </nav>
+                <div id="auth-area">
+                    <span id="user-info"></span>
+                    <a href="#" id="login-btn" data-i18n="login">Kirjaudu</a>
+                    <a href="#" id="logout-btn" style="display: none;" data-i18n="logout">Uloskirjautuminen</a>
+                </div>
             </header>
 
             <main>
                 
-                <h3>Haluatko käyttää kaappiesi tuotteita?</h3>
+                <h3 data-i18n="useFridgeQuestion">Haluatko käyttää kaappiesi tuotteita?</h3>
 
                 <div class="kysymys">
                     <input type="radio" name="jaakaappiSisalto" value="yes" id="radioYes">
-                    <label for="radioYes">Kyllä</label>
+                    <label for="radioYes" data-i18n="yes">Kyllä</label>
                     <input type="radio" name="jaakaappiSisalto" value="no" id="radioNo">
-                    <label for="radioNo">Ei</label>
+                    <label for="radioNo" data-i18n="no">Ei</label>
                 </div>
 
                 <div id="Ksisalto" class="hidden">
-                        <textarea name="tuote" id="tuote" placeholder="Listaa kaappiesi tuotteet"></textarea>
+                        <textarea name="tuote" id="tuote" data-i18n="listFridgeItems" placeholder="Listaa kaappiesi tuotteet"></textarea>
                         <label for="tuote"></label>
                 </div>
                 
-                <h3 id="otsikkoEsisalto" class="hidden">Minkälaista ruokaa haluat</h3>
+                <h3 id="otsikkoEsisalto" class="hidden" data-i18n="foodPreference">Minkälaista ruokaa haluat</h3>
                 <div id="Esisalto" class="hidden">   
                     <input type="radio" id="valinta1" name="vaihtoehto" value="liha">
-                    <label for="valinta1">Liha</label>
+                    <label for="valinta1" data-i18n="meat">Liha</label>
                 
                     <input type="radio" id="valinta2" name="vaihtoehto" value="kevyt">
-                    <label for="valinta2">Kevyt</label>
+                    <label for="valinta2" data-i18n="light">Kevyt</label>
                 
                     <input type="radio" id="valinta3" name="vaihtoehto" value="salaatti">
-                    <label for="valinta3">Salaatti</label>
+                    <label for="valinta3" data-i18n="salad">Salaatti</label>
                 
                     <input type="radio" id="valinta4" name="vaihtoehto" value="vege">
-                    <label for="valinta4">Vege</label>   
+                    <label for="valinta4" data-i18n="veg">Vege</label>   
                 </div>
 
                 <div id="slidebar" class="hidden">
-                    <h3 class="aika">Kuinka paljon aikaa kokata</h3>
+                    <h3 class="aika" data-i18n="timeToCook">Kuinka paljon aikaa kokata</h3>
                     <label for="aika" id="aikaaKokata"> </label>
                         <span>15 min</span>
                         <input type="range" id="aika" name="aika" min="15" max="120" step="1">
                         <span>120min</span>
-                        <h3>Valittu aika: <span id="aikaArvo">70</span> min</h3>
+                        <h3 data-i18n="selectedTime">Valittu aika: <span id="aikaArvo">70</span> min</h3>
                 </div>
 
                 <div id="allergiat" class="hidden">
-                    <textarea name="allergia" id="allergia" placeholder="Listaa allergiat"></textarea>
+                    <textarea name="allergia" id="allergia" data-i18n="listAllergies" placeholder="Listaa allergiat"></textarea>
                 </div>
                 
-                <button id="haku" class="hidden">Hae reseptejä</button>
-                <div id="loading-message" class="hidden">Etsitään reseptejä...</div>
+                <button id="haku" class="hidden" data-i18n="searchRecipes">Hae reseptejä</button>
+                <div id="loading-message" class="hidden" data-i18n="searching">Etsitään reseptejä...</div>
 
                 <div id="vastaus" class="hidden"></div>
 
+                <div id="toast" class="toast hidden" data-i18n="recipeSaved">Resepti tallennettu!</div>
+
             </main>
             <script src="env.js"></script>
-            <script src="script.js"></script>
+            <script type="module">
+                import { setupAuthHandlers } from './users.js';
+                setupAuthHandlers();
+            </script>
+            <script type="module" src="script.js"></script>
 
             <div id="resetModal" class="modal hidden">
                 <div class="modal-content">
-                    <p>Haluatko varmasti aloittaa alusta?</p>
+                    <p data-i18n="restartQuestion">Haluatko varmasti aloittaa alusta?</p>
                     <div class="modal-buttons">
-                        <button id="vahvistaReset" class="yes">Kyllä</button>
-                        <button id="peruutaReset" class="no">Ei</button>
+                        <button id="vahvistaReset" class="yes" data-i18n="confirm">Kyllä</button>
+                        <button id="peruutaReset" class="no" data-i18n="cancel">Ei</button>
                     </div>
                 </div>
             </div>

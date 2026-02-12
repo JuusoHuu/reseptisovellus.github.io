@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resepti sovellus</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head> 
+    <body>
+        <header class="hero-banner">
+            <div class="hamburger" onclick="toggleMenu()">
+                &#9776;
+            </div>
+            <nav class="hero-nav" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Koti</a></li>
+                    <li><a href="app.html">Sovellus</a></li>
+                </ul>   
+            </nav>
+            <div id="auth-area">
+                <span id="user-info"></span>
+                <a href="#" id="login-btn">Kirjaudu</a>
+                <a href="#" id="logout-btn" style="display: none;">Uloskirjautuminen</a>
+              </div>
+        </header>
+        
+        <main>
+            <h2 data-i18n="savedRecipes">Tallennetut reseptit</h2>
+            <ul id="favorite-list"></ul>
+          </main>
+        
+          <script type="module">
+            import { setupAuthHandlers, loadFavoritesAndShow } from './users.js';
+            setupAuthHandlers();
+            loadFavoritesAndShow();
+          </script>
+          <script type="module" src="script.js"></script>
+          
+    </body>
+</html>
